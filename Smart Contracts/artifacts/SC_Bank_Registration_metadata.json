@@ -1,0 +1,276 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "bankRegProtocolIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_bankAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response1",
+						"type": "bool"
+					}
+				],
+				"name": "checkIfCommitmentMatches",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_commit",
+						"type": "bytes32"
+					}
+				],
+				"name": "commitPoBL",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "exit1BankReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_bankAddr",
+						"type": "address"
+					}
+				],
+				"name": "exit2BankReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "exit3BankReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "exit4BankReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_bankAddr",
+						"type": "address"
+					}
+				],
+				"name": "getBankID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "isBankIDValid",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockMoneyByBank",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_bankAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockMoneyByRegulatoryBody",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockingAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "regulatory_Body",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_bankAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response2",
+						"type": "bool"
+					}
+				],
+				"name": "sendVerificationResult",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"checkIfCommitmentMatches(address,bool)": {
+					"notice": "Caller: Regulatory body When: After the bank commits account information, the Regulatory body checks if the commitment matches with the received information. And invokes this function to register the response. Previous Function: commitPoBL() by bank*"
+				},
+				"commitPoBL(bytes32)": {
+					"notice": "Caller: Bank When: After locking money by regulatory body, bank sends information regarding the proof of banking license(PoBL) in offline mode. And invokes this function to commit the information send in offline. Previous Function: lockMoneyByRegulatoryBody() by Regulatory body*"
+				},
+				"exit1BankReg()": {
+					"notice": "Caller: Bank When: If the Regulatory body does not lock money within time limit, bank can abort the protocol and unlock its money. Previous Function: lockMoneyByBank by bank*"
+				},
+				"exit2BankReg(address)": {
+					"notice": "Caller: Regulatory Body When: Once Reg Body locked money on smart contract, but bank does not commit account info within time limit,  Reg Body can abort the protocol and unlock its money. Here, the system will penalize the bank by deducting its locked amount and transfer the same to the Reg Body. Previous Function: lockMoneyByRegulatoryBody() by Regulatory Body*"
+				},
+				"exit3BankReg()": {
+					"notice": "Caller: Bank When: If the Regulatory body does not send response1 within time limit, bank can abort the protocol and unlock its money. Here, the system will penalize the Regulatory body by deducting its locked amount and transfer the same to the bank. Previous Function: commitPoBL() by bank*"
+				},
+				"exit4BankReg()": {
+					"notice": "Caller: Bank When: If the Regulatory body does not send response2 within time limit, bank can abort the protocol and unlock its money. Here, the system will penalize the Regulatory body by deducting its locked amount and transfer the same to the bank. Previous Function: checkIfCommitmentMatches() by Reg Body*"
+				},
+				"getBankID(address)": {
+					"notice": "Interface to other smart contract"
+				},
+				"lockMoneyByBank()": {
+					"notice": "Caller: Bank When: To initiate bank registration process towards regulatory body. Previous Function: NA*"
+				},
+				"lockMoneyByRegulatoryBody(address)": {
+					"notice": "Caller: Regulatory body When: Once bank locked money on smart contract, Regulatory body invokes this function to lock the security money. Previous Function: lockMoneyByBank() by bank*"
+				},
+				"sendVerificationResult(address,bool)": {
+					"notice": "Caller: Regulatory body When: Once the Regulatory body verifies if the bank belongs to the Regulatory body, it invokes this function to register the verification result on BC. Previous Function: checkIfCommitmentMatches() by Regulatory body*"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SC_Bank_Registration.sol": "SC_Bank_Registration"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"SC_Bank_Registration.sol": {
+			"keccak256": "0xf4174afc75757a92efb4ddb4c98686c89b55c66f10137f80d80bca4bb2970573",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35b8f6fed23031fe5033e45c71da96c5fda18187c0f45fc41b2eac3941fdfe96",
+				"dweb:/ipfs/QmdFU2i7zAimrQBwqfaSrJaReWriTKxu8XLH9JLwNiKYHy"
+			]
+		}
+	},
+	"version": 1
+}

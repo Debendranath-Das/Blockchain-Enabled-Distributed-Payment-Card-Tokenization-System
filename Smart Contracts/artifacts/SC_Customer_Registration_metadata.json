@@ -1,0 +1,292 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_Bank_Registration",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_Bank_Registration",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response1",
+						"type": "bool"
+					}
+				],
+				"name": "checkIfCommitmentMatches",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "_commitment",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "commitAccountInfo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "exit1CustomerReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "exit2CustomerReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "exit3CustomerReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "exit4CustomerReg",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "isCustomerRegisteredToBank",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockMoneyByBank",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "lockMoneyByCustomer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockingAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response2",
+						"type": "bool"
+					}
+				],
+				"name": "sendVerificationResult",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"checkIfCommitmentMatches(address,bool)": {
+					"notice": "Caller: Bank When: After the customer commits account information, the bank checks if the commitment matches with the received information. And invokes this function to register the response. Previous Function: commitAccountInfo() by Customer*"
+				},
+				"commitAccountInfo(bytes32,uint256)": {
+					"notice": "Caller: Customer When: After locking money by bank, customer sends information regarding the proof of holding an account with this bank in offline mode. And invokes this function to commit the information send in offline. Previous Function: lockMoneyByBank() by Bank*"
+				},
+				"exit1CustomerReg(uint256)": {
+					"notice": "Caller: Customer When: If the bank does not lock money within time limit, customer can abort the protocol and unlock its money. Previous Function: lockMoneyByCustomer by Customer*"
+				},
+				"exit2CustomerReg(address)": {
+					"notice": "Caller: Bank (holding a valid bankID) When: Once bank locked money on smart contract, but customer does not commit account info within time limit,  bank can abort the protocol and unlock its money. Here, the system will penalize the customer by deducting its locked amount and transfer the same to the bank. Previous Function: lockMoneyByBank() by Bank*"
+				},
+				"exit3CustomerReg(uint256)": {
+					"notice": "Caller: Customer When: If the bank does not send response1 within time limit, customer can abort the protocol and unlock its money. Here, the system will penalize the bank by deducting its locked amount and transfer the same to the customer. Previous Function: commitAccountInfo() by Customer*"
+				},
+				"exit4CustomerReg(uint256)": {
+					"notice": "Caller: Customer When: If the bank does not send response2 within time limit after sending response1, customer can abort the protocol and unlock its money. Here, the system will penalize the bank by deducting its locked amount and transfer the same to the customer. Previous Function: checkIfCommitmentMatches() by Bank*"
+				},
+				"isCustomerRegisteredToBank(address,uint256)": {
+					"notice": "Interface to other smart contract"
+				},
+				"lockMoneyByBank(address)": {
+					"notice": "Caller: Bank (holding a valid bankID) When: Once customer locked money on smart contract, bank invokes this function to lock the security money. Previous Function: lockMoneyByCustomer() by Customer*"
+				},
+				"lockMoneyByCustomer(uint256)": {
+					"notice": "Caller: Customer When: To initiate customer registration process towards bank. Previous Function: NA*"
+				},
+				"sendVerificationResult(address,bool)": {
+					"notice": "Caller: Bank When: Once the bank verifies if the customer belongs to the bank, it invokes this function to register the verification result on BC. Previous Function: checkIfCommitmentMatches() by Bank*"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SC_Customer_Registration.sol": "SC_Customer_Registration"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"SC_Bank_Registration.sol": {
+			"keccak256": "0xf4174afc75757a92efb4ddb4c98686c89b55c66f10137f80d80bca4bb2970573",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35b8f6fed23031fe5033e45c71da96c5fda18187c0f45fc41b2eac3941fdfe96",
+				"dweb:/ipfs/QmdFU2i7zAimrQBwqfaSrJaReWriTKxu8XLH9JLwNiKYHy"
+			]
+		},
+		"SC_Customer_Registration.sol": {
+			"keccak256": "0x4d612cc8668be30cdb5245284fe7db78461f8e64c194544038dc79a978a8e708",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5996ab9b5668573808c9b43d8b6e4b654e8fe7bd9b3144c478e732f04683f69e",
+				"dweb:/ipfs/QmaZ2vv2FM2Y7F4AoFrFTu77oPHG4it4tFCbwxWJRDhDnv"
+			]
+		}
+	},
+	"version": 1
+}

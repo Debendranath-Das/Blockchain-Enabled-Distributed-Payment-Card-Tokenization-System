@@ -1,0 +1,1077 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr_SC_Bank_Registration",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_addr_SC_Customer_Registration",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_notifyPayeeAboutCreditStatus",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_payee",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_notifyPayeeToUtilizeToken",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_payer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_notifyPayerAboutDebitStatus",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_payer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_notifyPayerAboutRefundStatus",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_receiver",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenApplID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_payerCanRequestToken",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_issuerBankID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_requestToRefundTokenAmount",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "_payer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "event_tokenIssued",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_Bank_Registration",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "addr_SC_Customer_Registration",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_acquirerBankID",
+						"type": "uint256"
+					}
+				],
+				"name": "askToExecuteTokenByPayee",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_issuerBankID",
+						"type": "uint256"
+					}
+				],
+				"name": "askToExecuteTokenByPayer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response4",
+						"type": "bool"
+					}
+				],
+				"name": "checkBalanceAndIssueToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response3",
+						"type": "bool"
+					}
+				],
+				"name": "checkIfCardActive",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response2",
+						"type": "bool"
+					}
+				],
+				"name": "checkIfCardValid",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_response1",
+						"type": "bool"
+					}
+				],
+				"name": "checkIfCommitmentMatches",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "_commitment",
+						"type": "bytes32"
+					}
+				],
+				"name": "commitCardDetails",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_payerAddr",
+						"type": "address"
+					}
+				],
+				"name": "confirmRefundStatusByIssuerBank",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_acquirerBankID",
+						"type": "uint256"
+					}
+				],
+				"name": "initiateTokenExecutionByPayee",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_issuerBankID",
+						"type": "uint256"
+					}
+				],
+				"name": "initiateTokenExecutionByPayer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "latestTokenApplID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_payeeAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockSecurityMoneyByAcquirerBank",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockSecurityMoneyByBank",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_payerAddr",
+						"type": "address"
+					}
+				],
+				"name": "lockSecurityMoneyByIssuerBank",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					}
+				],
+				"name": "lockSecurityMoneyByPayer",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockingAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_issuerBankID",
+						"type": "uint256"
+					}
+				],
+				"name": "refundTokenAmountToPayer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_bankID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "requestToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_payeeAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_status",
+						"type": "bool"
+					}
+				],
+				"name": "sendConfirmationMessageByAcquirerrBank",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_payerAddr",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "_status",
+						"type": "bool"
+					}
+				],
+				"name": "sendConfirmationMessageByIssuerBank",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "timeLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "token",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "issuer_bankID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_issuance_token",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_debit_token_amount_from_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "acquirer_bankID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_credit_token_amount_to_payee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_ask_to_refund_token_amount_to_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "refund_token_amount_to_payer",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_refund_token_amount_to_payer",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenApplAborted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenApplIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenApplUnderProcess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenExecutionForPayee",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_security_money_by_payee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_security_money_by_acquirer_bank",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_execute_token_by_payee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_credit_token_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "transaction_credit_status",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "security_money_received_by_payee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_get_security_money_by_payee",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "security_money_received_by_acquirer_bank",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_get_security_money_by_acquirer_bank",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenExecutionForPayeeUnderProcess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenExecutionForPayer",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_security_money_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_security_money_by_issuer_bank",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_execute_token_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_debit_token_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "transaction_debit_status",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "security_money_received_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_get_security_money_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "security_money_received_by_issuer_bank",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_get_security_money_by_issuer_bank",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenExecutionForPayerUnderProcess",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenIDGenerator",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenIssuanceAppl",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenApplID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "payer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "issuer_bankID",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_security_money_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_lock_security_money_by_issuer_bank",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "card_commitment",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_card_commitment",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "response1",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_response1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "response2",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_response2",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "response3",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_response3",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "payee",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "token_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_requesting_token",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "response4",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_response4",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "security_money_received_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_get_security_money_by_payer",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "security_money_received_by_issuer_bank",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp_get_security_money_by_issuer_bank",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"checkBalanceAndIssueToken(address,bool)": {
+					"notice": "Caller: Bank When: Next the bank will check the payer's unreserved account balance against the token amount and provides its fourth response. If _response4 is true, generate a token with the specified payee's address and amount and notify the same to payer.  Also release the locked money to individual parties.  Previous Function: requestToken() by payer*"
+				},
+				"checkIfCardActive(address,bool)": {
+					"notice": "Caller: Bank When: Sending response2, the bank checks if the card is active at present and accordingly provides its third response. Previous Function: checkIfCardValid() by bank*"
+				},
+				"checkIfCardValid(address,bool)": {
+					"notice": "Caller: Bank When: Sending response1, the bank checks if the card information is valid and accordingly provides its second response. Previous Function: checkIfCommitmentMatches() by bank*"
+				},
+				"checkIfCommitmentMatches(address,bool)": {
+					"notice": "Caller: Bank When: Once payer committed card info, next the bank provides its first response if the offline received data matches with the commitment. Previous Function: commitCardDetails() by payer*"
+				},
+				"commitCardDetails(uint256,bytes32)": {
+					"notice": "Caller: Payer When: Payer shares its card information to the bank offline and puts the commitment of card info onchain. Previous Function: lockSecurityMoneyBybank() by bank*"
+				},
+				"confirmRefundStatusByIssuerBank(uint256,address)": {
+					"notice": "Issuer bank confirms the refund status onchain by calling this function."
+				},
+				"lockSecurityMoneyByBank(address)": {
+					"notice": "Caller: Bank When: Once payer locked the money, next the bank also needs to lock the money. Previous Function: lockSecurityMoneyByPayer() by payer*"
+				},
+				"lockSecurityMoneyByPayer(uint256)": {
+					"notice": "Caller: Payer When: To initiate token issuance process towards bank, payer locks its money in the smart contract. Previous Function: NA*"
+				},
+				"refundTokenAmountToPayer(uint256,uint256)": {
+					"notice": "If the token amount has been debited from payer's account, but same is not credited to payee's account within timelimit, the  payer can claim for refunding/re-credited the token amount to it's account."
+				},
+				"requestToken(uint256,address,uint256)": {
+					"notice": "Caller: Payer When: If response3 is true (i.e. positive), the payer can request to issue a token specifying payee's address and amount Previous Function: checkIfCardActive() by bank*"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"SC_Tokenization.sol": "SC_Tokenization"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": [],
+		"viaIR": true
+	},
+	"sources": {
+		"SC_Bank_Registration.sol": {
+			"keccak256": "0xf4174afc75757a92efb4ddb4c98686c89b55c66f10137f80d80bca4bb2970573",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://35b8f6fed23031fe5033e45c71da96c5fda18187c0f45fc41b2eac3941fdfe96",
+				"dweb:/ipfs/QmdFU2i7zAimrQBwqfaSrJaReWriTKxu8XLH9JLwNiKYHy"
+			]
+		},
+		"SC_Customer_Registration.sol": {
+			"keccak256": "0x4d612cc8668be30cdb5245284fe7db78461f8e64c194544038dc79a978a8e708",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5996ab9b5668573808c9b43d8b6e4b654e8fe7bd9b3144c478e732f04683f69e",
+				"dweb:/ipfs/QmaZ2vv2FM2Y7F4AoFrFTu77oPHG4it4tFCbwxWJRDhDnv"
+			]
+		},
+		"SC_Tokenization.sol": {
+			"keccak256": "0x289044b983a47ae4a3d6a75c0c37f3fb010aa037a1f07e8418c429ad6a2f19c6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9bb6c758fdd712baeb97abfffb64670e7fa96eba50f83ce8adf3ce0882e36c80",
+				"dweb:/ipfs/QmU1M1ktam5ubbtqEiauxcciasxHar558FzAacngXYVZPo"
+			]
+		}
+	},
+	"version": 1
+}
